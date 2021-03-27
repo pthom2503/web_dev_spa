@@ -23,7 +23,6 @@ defmodule Backend.Posts do
   end
 
   def list_user_posts(id) do
-    IO.puts id
     Repo.all(from p in Post, where: p.user_id == ^id)
     |> Repo.preload(:user)
   end

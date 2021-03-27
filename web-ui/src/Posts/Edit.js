@@ -34,7 +34,6 @@ export default function PostsEdit(post) {
   }
 
   function updateDate(ev) {
-    console.log(ev);
     let p1 = Object.assign({}, post);
     p1["date"] = ev;
     setPost(p1);

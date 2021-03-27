@@ -26,14 +26,11 @@ defmodule BackendWeb.PostController do
     |> send_resp(:created, Jason.encode!(sess))
   end
 
+  # based on lecture code
   def create(conn, %{"post" => post_params}) do
-    IO.puts "Made it to controller"
-    IO.inspect post_params
     user = conn.assigns[:current_user]
     post_params = post_params
     |> Map.put("user_id", user.id)
-
-    IO.inspect({:post, post_params})
 
     with {:ok, %Post{} = post} <- Posts.create_post(post_params) do
       conn

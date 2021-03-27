@@ -1,3 +1,4 @@
+// based on lecture code
 import { Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';

@@ -1,3 +1,4 @@
+// based on lecture code
 import { createStore, combineReducers } from 'redux';
 
 // Parts for our state:
@@ -79,7 +80,6 @@ function error(state = null, action) {
 }
 
 function root_reducer(state, action) {
-  console.log("root reducer", state, action);
 
   /*
     state1 = {
@@ -92,7 +92,6 @@ function root_reducer(state, action) {
   );
 
   let state1 = redu(state, action);
-  console.log("state1", state1);
 
   return state1;
 }

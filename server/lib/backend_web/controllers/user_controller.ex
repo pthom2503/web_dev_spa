@@ -11,15 +11,12 @@ defmodule BackendWeb.UserController do
     render(conn, "index.json", users: users)
   end
 
+# based on lecture code
   def create(conn, %{"user" => user_params}) do
-    IO.puts "got to user creation"
-    IO.inspect user_params
     test = Argon2.add_hash(user_params["password"])
     test = Map.put(test, "name", user_params["name"])
     test = Map.put(test, "email", user_params["email"])
-    IO.inspect test
     updated_params = %{"name": user_params["name"], "email": user_params["email"], "password_hash": test.password_hash}
-    IO.inspect updated_params
     with {:ok, %User{} = user} <- Users.create_user(updated_params) do
       conn
       |> put_status(:created)

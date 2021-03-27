@@ -21,7 +21,8 @@ defmodule BackendWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-   scope "/api/v1", BackendWeb do
+  # based on lecture code
+    scope "/api/v1", BackendWeb do
      pipe_through :api
      
      resources "/users", UserController, except: [:new, :edit]

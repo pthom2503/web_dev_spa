@@ -1,3 +1,5 @@
+// Based on lecture code
+
 import { Nav, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -13,7 +15,6 @@ function LoginForm() {
   function on_submit(ev) {
     ev.preventDefault();
     let session = api_login(email, pass);
-    console.log(session);
   }
 
   return (
@@ -46,7 +47,6 @@ let SessionInfo = connect()(({session, dispatch}) => {
 });
 
 function LOI({session}) {
-  console.log("made it to LOI func");
   if (session) {
     return <SessionInfo session={session} />;
   }

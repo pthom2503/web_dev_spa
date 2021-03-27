@@ -1,3 +1,4 @@
+# based on lecture code
 defmodule BackendWeb.SessionController do
   use BackendWeb, :controller
 

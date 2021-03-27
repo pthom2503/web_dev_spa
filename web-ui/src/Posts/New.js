@@ -1,3 +1,4 @@
+// based on lecture code
 import { Row, Col, Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -35,7 +36,6 @@ export default function PostsNew() {
   }
 
   function updateDate(ev) {
-    console.log(ev);
     let p1 = Object.assign({}, post);
     p1["date"] = ev;
     setPost(p1);

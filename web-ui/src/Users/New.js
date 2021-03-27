@@ -1,3 +1,4 @@
+// based on lecture code
 import { Row, Col, Form, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { useState } from 'react'
@@ -32,7 +33,6 @@ function UsersNew() {
 
   function onSubmit(ev) {
     ev.preventDefault();
-    console.log(user);
 
     let data = pick(user, ['name', 'email', 'password']);
     create_user(data).then(() => {

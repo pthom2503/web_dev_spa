@@ -14,7 +14,6 @@ async function api_post(path, data) {
     },
     body: JSON.stringify(data),
   };
-console.log(opts);
   let text = await fetch(
     "http://localhost:4000/api/v1" + path, opts);
   return await text.json();
@@ -47,8 +46,6 @@ export async function create_post(post) {
   let state = store.getState();
   let token = state?.session?.token;
 
-  console.log("made it to create_post");
-  console.log(post.date.toISOString());
   let data = new FormData();
   data.append("post[name]", post.name);
   data.append("post[description]", post.description);
@@ -74,8 +71,6 @@ export async function edit_post(post) {
   let state = store.getState();
   let token = state?.session?.token;
 
-  console.log("made it to create_post");
-  console.log(post.date.toISOString());
   let data = new FormData();
   data.append("post[id]", post.id);
   data.append("post[name]", post.name);
@@ -100,7 +95,6 @@ export async function edit_post(post) {
 
 export function api_login(email, password) {
   api_post("/session", {email, password}).then((data) => {
-    console.log("login resp", data);
     if (data.session) {
       let action = {
         type: 'session/set',

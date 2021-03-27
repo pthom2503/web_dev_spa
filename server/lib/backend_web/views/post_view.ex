@@ -1,3 +1,4 @@
+# based on lecture code
 defmodule BackendWeb.PostView do
   use BackendWeb, :view
   alias BackendWeb.PostView
@@ -18,7 +19,6 @@ defmodule BackendWeb.PostView do
       nil
     end
 
-    IO.puts "made it to the render function"
     %{id: post.id,
       name: post.name,
       date: post.date,
