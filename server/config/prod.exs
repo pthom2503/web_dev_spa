@@ -10,11 +10,32 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :backend, BackendWeb.Endpoint,
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  url: [host: "dialnerd.me", port: 80]
+#cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
 config :logger, level: :info
+
+config :cors_plug,
+  origin: ["http://events-spa.dialnerd.me"],
+  max_age: 86400,
+  methods: ["GET", "POST", "PATCH", "DELETE"],
+  headers: [
+        "Authorization",
+        "Content-Type",
+        "Accept",
+        "Origin",
+        "User-Agent",
+        "DNT",
+        "Cache-Control",
+        "X-Mx-ReqToken",
+        "Keep-Alive",
+        "X-Requested-With",
+        "If-Modified-Since",
+        "X-CSRF-Token",
+        "x-auth"
+      ]
+
 
 # ## SSL Support
 #

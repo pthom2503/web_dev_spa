@@ -25,7 +25,7 @@ config :logger, :console,
   metadata: [:request_id]
 
 config :cors_plug,
-  origin: ["http://localhost:3000"],
+  origin: ["http://events-spa.dialnerd.me"],
   max_age: 86400,
   methods: ["GET", "POST", "PATCH"],
   headers: [
