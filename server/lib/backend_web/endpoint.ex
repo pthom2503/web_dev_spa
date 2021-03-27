@@ -7,7 +7,7 @@ defmodule BackendWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_backend_key",
-    signing_salt: "9iWnlo79"
+    signing_salt: "ePL3319u"
   ]
 
   socket "/socket", BackendWeb.UserSocket,
@@ -47,6 +47,7 @@ defmodule BackendWeb.Endpoint do
     pass: ["*/*"],
     json_decoder: Phoenix.json_library()
 
+  plug CORSPlug
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options

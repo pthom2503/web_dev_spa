@@ -9,3 +9,18 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+#
+alias Backend.Repo
+alias Backend.Users.User
+
+defmodule Inject do
+
+  def user(name, email, pass) do
+    hash = Argon2.hash_pwd_salt(pass)
+    Repo.insert!(%User{name: name, email: email, password_hash: hash})
+  end
+end
+
+alice = Inject.user("alice", "alice@gmail.com", "testpass1")
+bob = Inject.user("bob", "bob@hotmail.com", "testpass2")
+

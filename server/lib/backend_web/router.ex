@@ -7,6 +7,7 @@ defmodule BackendWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug BackendWeb.Plugs.RequireAuth
   end
 
   pipeline :api do
@@ -20,9 +21,14 @@ defmodule BackendWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", BackendWeb do
-  #   pipe_through :api
-  # end
+   scope "/api/v1", BackendWeb do
+     pipe_through :api
+     
+     resources "/users", UserController, except: [:new, :edit]
+     resources "/posts", PostController, except: [:new, :edit]
+     resources "/comments", CommentController, except: [:new, :edit]
+     resources "/session", SessionController, only: [:create]
+   end
 
   # Enables LiveDashboard only for development
   #
